@@ -35,6 +35,9 @@ const run = async () => {
   for (let i = 1; i <= config.runs; i++) {
     const username: string = nanoid();
 
+    if (!fs.existsSync(`${config.screenshotsDir}`)){
+    	fs.mkdirSync(`${config.screenshotsDir}`);
+    }
     if (!fs.existsSync(`${config.screenshotsDir}/${username}`)) fs.mkdirSync(`${config.screenshotsDir}/${username}`);
 
     console.log(`[${i}] Starting run`);
